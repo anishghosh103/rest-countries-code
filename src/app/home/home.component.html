@@ -1,0 +1,24 @@
+<div class="d-flex flex-column bg-dark" id="mainContainer">
+
+  <div class="main-area" *ngFor="let region of regions">
+    <div class="image">
+      <img src="assets/images/{{region}}.jpg" *ngIf="selectedRegion === region" [@imageAnim]="'shown'">
+    </div>
+  </div>
+
+  <div class="main-area" style="z-index:2;">
+    <div class="d-flex flex-column w-100 h-100 justify-content-center align-items-center">
+        <div class="title mb-2">
+          Select Region
+        </div>
+        <div class="dropdown">
+          <div class="placeholder px-3 justify-content-around d-flex align-items-center" (click)="toggleListState()" *ngIf="listState === 'hidden'">{{ selectedRegion | titlecase }} <i class="fas fa-caret-down"></i></div>
+          <div class="list" [@listAnim]="listState">
+            <div class="item" *ngFor="let region of regions" (click)="selectRegion(region)">{{ region | titlecase }}</div>
+          </div>
+        </div>
+        <a class="btn btn-outline-light mt-4" routerLink="/countries/region/{{selectedRegion}}">Search Countries</a>
+      </div>
+  </div>
+
+</div>

@@ -1,0 +1,125 @@
+
+.loading-area {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.main-container {
+	width: 100vw;
+	height: 100vh;
+	overflow: auto;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.cover {
+	position: relative;
+}
+.cover img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -2;
+	object-fit: cover;
+}
+.cover::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	background: hsla(0, 0%, 0%, 0.1);
+}
+.cover .title {
+	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-size: 2.5rem;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 0.5rem;
+	padding: 0.5rem 0.5rem 0.5rem 1rem;
+	text-shadow: 0 1px 0 0 hsla(0, 0%, 0%, 1) !important;
+	color: white;
+	max-width: 75%;
+	border-radius: 3px;
+}
+@media all and (max-width: 768px) {
+	.cover .title { font-size: 1.75rem; }
+}
+@media all and (max-width: 576px) {
+	.cover .title {
+		font-size: 1.5rem;
+		max-width: 90%;
+	}
+}
+@media all and (max-width: 368px) {
+
+}
+
+.details-area {
+	width: 100%;
+	padding: 0 7rem;
+	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.details-area .title {
+	padding: 3rem 0;
+	font-weight: 700;
+	font-size: 1.25rem;
+	letter-spacing: 0.1rem;
+	text-transform: uppercase;
+	/* text-align: center; */
+	position: relative;
+	color: hsl(0, 0%, 15%);
+}
+.details-area .title::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(2rem);
+	width: 10%;
+	height: 3px;
+	background: hsl(0, 0%, 15%);
+}
+.details-area .item {
+	margin-bottom: 1.5rem;
+}
+.details-area .item:last-child { margin-bottom: 3rem; }
+.details-area .item .header,
+.details-area .item .footer {
+	font-weight: 500;
+	font-size: 0.8rem;
+	line-height: 1rem;
+	color: hsl(0, 0%, 47%);
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+}
+.details-area .item .content {
+	font-weight: 300;
+	font-size: 1.5rem;
+	margin-left: -1px;
+}
+.details-area.geographic .title { color: white; }
+.details-area.geographic .title::after { background: white; }
+.details-area.geographic .item .header,
+.details-area.geographic .item .footer {
+	color: hsl(0, 0%, 85%);
+}
+.details-area.regional {
+	background: hsl(0, 0%, 90%);
+}
+@media all and (max-width: 450px) {
+	.details-area { padding: 0 4.5rem; }
+}

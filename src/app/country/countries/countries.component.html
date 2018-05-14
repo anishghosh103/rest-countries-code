@@ -1,0 +1,67 @@
+<div class="d-flex flex-column">
+
+  <header class="d-flex flex-column">
+    <img src="assets/images/{{coverImage}}.jpg" *ngIf="coverImage">
+    <div class="title d-flex align-items-center justify-content-center">
+      <div *ngIf="type === 'region'">{{ value }}</div>
+      <div *ngIf="type === 'currency'">Currency: {{ value }}</div>
+      <div *ngIf="type === 'lang'">Language: {{ value  }}</div>
+    </div>
+    <div class="filters d-flex flex-column flex-md-row justify-content-around px-3 py-2 w-100">
+      <input type="text" class="textbox" [class.active]="nameFilter" placeholder="Search Name" [(ngModel)]="nameFilter">
+      <input type="text" class="textbox" [class.active]="langFilter" placeholder="Search Language" [(ngModel)]="langFilter">
+      <input type="text" class="textbox" [class.active]="currencyFilter" placeholder="Search Currency" [(ngModel)]="currencyFilter">
+    </div>
+  </header>
+
+  <div class="container-fluid pt-3 list-container">
+    <div class="text-center text-muted mt-5" *ngIf="searching">
+      Searching...
+    </div>
+    <div class="text-center text-muted" *ngIf="!searching && !nameFilter && !langFilter && !currencyFilter">
+      {{ list.length }} countr{{ list.length > 1 ? 'ies' : 'y' }} found.
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let country of list | nameFilter: nameFilter | langFilter: langFilter | currencyFilter: currencyFilter | paginate: { itemsPerPage: 10, currentPage: pageNumber }">
+        <div class="card mx-auto my-3 shadow border-0" [@cardAnim]="cardState">
+          <img src="{{ country.flag }}" alt="{{ country.name }}" class="card-img-top">
+          <div class="card-body">
+            <div class="card-title" [innerHtml]="country.name | makeBolder: nameFilter"></div>
+            <div class="card-text">
+              <div class="pair" *ngIf="country.capital">
+                <div class="key">Capital</div>
+                <div class="value">{{ country.capital }}</div>
+              </div>
+              <div class="pair" *ngIf="country.subregion">
+                <div class="key">Subregion</div>
+                <div class="value">{{ country.subregion }}</div>
+              </div>
+              <div class="pair">
+                <div class="key">Timezone{{ country.timezones.length > 1 ? 's' : '' }}</div>
+                <div class="value">{{ country.timezones.join(', ') }}</div>
+              </div>
+              <div class="pair">
+                <div class="key">Currenc{{ country.currencies.length > 1 ? 'ies' : 'y' }}</div>
+                <div class="value">
+                  <span *ngFor="let currency of country.currencies; let last = last"><a routerLink="/countries/currency/{{currency.code}}" class="card-link" [innerHtml]="currency.name | makeBolder: currencyFilter"></a>{{ last ? '' : ', ' }}</span>
+                </div>
+              </div>
+              <div class="pair">
+                <div class="key">Language{{ country.languages.length > 1 ? 's' : '' }}</div>
+                <div class="value">
+                  <span *ngFor="let language of country.languages; let last = last"><a routerLink="/countries/lang/{{language.code}}" class="card-link" [innerHtml]="language.name | makeBolder: langFilter"></a>{{ last ? '' : ', ' }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-block" (click)="showCountry(country.name)">More Info</button>
+        </div>
+      </div>
+    </div>
+    <div class="text-center my-3">
+      <pagination-controls class="my-pagination" [directionLinks]="false" (pageChange)="pageNumber = $event"></pagination-controls>
+    </div>
+
+  </div>
+
+</div>

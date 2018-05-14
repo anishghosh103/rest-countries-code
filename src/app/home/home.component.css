@@ -1,0 +1,77 @@
+
+#mainContainer {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.main-area {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.title {
+  font-size: 1.05rem;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+}
+
+.dropdown {
+  position: relative;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
+  width: 16rem;
+  cursor: pointer;
+}
+.dropdown .placeholder, .dropdown .list .item {
+  padding: 0.75rem;
+  text-align: center;
+  background: white;
+  color: hsl(0, 47%, 13%);
+  transition: all .1s ease-in-out;
+}
+.dropdown .placeholder:hover, .dropdown .list .item:hover {
+  background: hsl(0, 47%, 13%);
+  color: white;
+}
+.dropdown .list {
+  position: absolute;
+  width: inherit;
+  transform: translateY(-50%);
+}
+.dropdown .list .item {
+  border-bottom: 1px solid hsl(0, 47%, 13%);
+}
+.dropdown .list .item:last-child {
+  border-bottom: none;
+}

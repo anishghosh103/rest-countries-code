@@ -1,0 +1,114 @@
+<div class="loading-area" *ngIf="!valid">
+  <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+    <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+      <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"
+      />
+    </path>
+  </svg>
+</div>
+
+<div class="main-container" *ngIf="valid">
+
+  <div class="w-100 h-100 d-flex justify-content-center align-items-center cover">
+    <img src="{{ country.flag }}" class="w-100 h-100">
+    <div class="text-center title" [style.backgroundColor]="titleBackgroundColor">{{ country.name }}</div>
+  </div>
+
+  <div class="details-area basic">
+    <div class="title">Basic Details</div>
+    <div class="row">
+      <div class="col-12 col-md-6 item" *ngIf="country.capital">
+        <div class="header">Capital</div>
+        <div class="content">{{ country.capital }}</div>
+      </div>
+      <div class="col-12 col-md-6 item" *ngIf="country.demonym">
+        <div class="header">Demonym</div>
+        <div class="content">{{ country.demonym }}</div>
+      </div>
+      <div class="col-12 col-md-6 item" *ngIf="country.region">
+        <div class="header">Region</div>
+        <div class="content">{{ country.region }}</div>
+      </div>
+      <div class="col-12 col-md-6 item" *ngIf="country.subregion">
+        <div class="header">Subregion</div>
+        <div class="content">{{ country.subregion }}</div>
+      </div>
+      <div class="col-12 col-md-6 item" *ngIf="country.nativeName">
+        <div class="header">Native Name</div>
+        <div class="content">{{ country.nativeName }}</div>
+      </div>
+      <div class="col-12 col-md-6 item" *ngIf="country.altNames && country.altNames.length > 0">
+        <div class="header">Alternate Names</div>
+        <div class="content">{{ country.altNames.join(', ') }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="details-area geographic text-white" [style.backgroundColor]="titleBackgroundColor">
+    <div class="title">Geographic Details</div>
+    <div class="row">
+      <div class="col-12 col-md-6 item" *ngIf="country.population">
+        <div class="header">Population</div>
+        <div class="content">{{ country.population | number }}</div>
+      </div>
+      <div class="col-12 col-md-6 item" *ngIf="country.area">
+        <div class="header">Area</div>
+        <div class="content">{{ country.area | number }} sq. km.</div>
+      </div>
+      <div class="col-12 col-md-6 item" *ngIf="country.latlng && country.latlng.length > 0">
+        <div class="header">Latitude</div>
+        <div class="content">{{ country.latlng[0] | number }}
+          <sup style="margin-left:-4px;">o</sup>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 item" *ngIf="country.latlng && country.latlng.length > 0">
+        <div class="header">Longitude</div>
+        <div class="content">{{ country.latlng[1] | number }}
+          <sup style="margin-left:-4px;">o</sup>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 item" *ngIf="country.timezones && country.timezones.length > 0">
+        <div class="header">Timezones</div>
+        <div class="content">{{ country.timezones.join(', ') }}</div>
+      </div>
+      <div class="col-12 col-md-6 item" *ngIf="country.borders && country.borders.length > 0">
+        <div class="header">Borders</div>
+        <div class="content">{{ country.borders.join(', ') }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="details-area">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="text-left title">Currenc{{ country.currencies.length > 1 ? 'ies' : 'y' }}</div>
+        <div class="item" *ngFor="let currency of country.currencies">
+          <div class="content">{{ currency.name }}</div>
+          <div class="footer">
+            {{ currency.code }}
+            <span *ngIf="currency.symbol">({{ currency.symbol }})</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="text-left title">Language{{ country.languages.length > 1 ? 's' : '' }}</div>
+        <div class="item" *ngFor="let language of country.languages">
+          <div class="content">{{ language.name }}</div>
+          <div class="footer">{{ language.nativeName }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="details-area regional" *ngIf="country.regionalBlocs && country.regionalBlocs.length > 0">
+    <div class="title">Regional Blocks</div>
+    <div class="row">
+      <div class="col-12 col-lg-6 item" *ngFor="let block of country.regionalBlocs">
+        <div class="content">{{ block.name }}</div>
+        <div class="footer">{{ block.acronym }}</div>
+      </div>
+    </div>
+  </div>
+
+</div>
