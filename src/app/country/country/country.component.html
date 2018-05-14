@@ -84,7 +84,7 @@
       <div class="col-12 col-md-6">
         <div class="text-left title">Currenc{{ country.currencies.length > 1 ? 'ies' : 'y' }}</div>
         <div class="item" *ngFor="let currency of country.currencies">
-          <div class="content">{{ currency.name }}</div>
+          <div class="content"><a routerLink="/countries/currency/{{currency.code}}">{{ currency.name }}</a></div>
           <div class="footer">
             {{ currency.code }}
             <span *ngIf="currency.symbol">({{ currency.symbol }})</span>
@@ -94,7 +94,7 @@
       <div class="col-12 col-md-6">
         <div class="text-left title">Language{{ country.languages.length > 1 ? 's' : '' }}</div>
         <div class="item" *ngFor="let language of country.languages">
-          <div class="content">{{ language.name }}</div>
+          <div class="content"><a routerLink="/countries/lang/{{language.code}}">{{ language.name }}</a></div>
           <div class="footer">{{ language.nativeName }}</div>
         </div>
       </div>

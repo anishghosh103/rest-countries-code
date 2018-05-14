@@ -111,6 +111,9 @@ header {
 	font-size: 1.5rem;
 	margin-left: -1px;
 }
+.details-area .item .content a {
+	text-decoration: none;
+}
 .details-area.geographic .title { color: white; }
 .details-area.geographic .title::after { background: white; }
 .details-area.geographic .item .header,
