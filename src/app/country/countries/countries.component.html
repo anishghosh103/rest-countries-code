@@ -1,3 +1,5 @@
+<app-loading-screen *ngIf="searching"></app-loading-screen>
+
 <div class="d-flex flex-column">
 
   <header class="d-flex flex-column">
@@ -15,9 +17,6 @@
   </header>
 
   <div class="container-fluid pt-3 list-container">
-    <div class="text-center text-muted mt-5" *ngIf="searching">
-      Searching...
-    </div>
     <div class="text-center text-muted" *ngIf="!searching && !nameFilter && !langFilter && !currencyFilter">
       {{ list.length }} countr{{ list.length > 1 ? 'ies' : 'y' }} found.
     </div>

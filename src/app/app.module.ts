@@ -11,6 +11,8 @@ import { AppService } from './app.service';
 import { CountryModule } from './country/country.module';
 import { CountriesComponent } from './country/countries/countries.component';
 import { CountryComponent } from './country/country/country.component';
+import { SharedModule } from './shared/shared.module';
+import { LoadingScreenComponent } from './shared/components/loading-screen/loading-screen.component';
 
 
 @NgModule({
@@ -23,6 +25,7 @@ import { CountryComponent } from './country/country/country.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    SharedModule,
     CountryModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },

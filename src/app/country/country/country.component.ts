@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 import { Country } from '../country.interface';
 import { AppService } from '../../app.service';
 import { ActivatedRoute } from '@angular/router';
@@ -15,14 +15,17 @@ export class CountryComponent implements OnInit {
   private country: Country;
 
   private valid: boolean;
+  private showHeader: boolean;
   private titleBackgroundColor: string;
 
   constructor(
     private _appService: AppService,
     private _countryService: CountryService,
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute,
+    private _el: ElementRef
   ) {
     this.valid = false;
+    this.showHeader = false;
   }
 
   ngOnInit() {
@@ -41,5 +44,11 @@ export class CountryComponent implements OnInit {
       })
       .catch(err => console.log(err));
   }
+
+  @HostListener('window:scroll', ['$event'])
+    checkScroll() {
+      const position = this._el.nativeElement.scrollTop;
+      this.showHeader = window.pageYOffset >= window.innerHeight;
+    }
 
 }

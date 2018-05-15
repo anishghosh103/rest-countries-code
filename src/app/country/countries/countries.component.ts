@@ -5,6 +5,7 @@ import { Country } from '../country.interface';
 import { CountryService } from '../country.service';
 
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { log } from 'util';
 
 @Component({
   selector: 'app-countries',
@@ -77,7 +78,10 @@ export class CountriesComponent implements OnInit, OnDestroy {
       this.list = this.countryList;
       this.searching = false;
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log('countries.component.ts:82', err);
+      this._router.navigate(['/']);
+    });
   }
 
   public showCountry(countryName: string) {

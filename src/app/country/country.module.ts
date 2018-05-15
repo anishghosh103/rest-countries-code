@@ -10,11 +10,21 @@ import { NameFilterPipe } from './pipes/name-filter.pipe';
 import { LangFilterPipe } from './pipes/lang-filter.pipe';
 import { CurrencyFilterPipe } from './pipes/currency-filter.pipe';
 import { MakeBolderPipe } from './pipes/make-bolder.pipe';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
+  declarations: [
+    CountriesComponent,
+    CountryComponent,
+    NameFilterPipe,
+    LangFilterPipe,
+    CurrencyFilterPipe,
+    MakeBolderPipe
+  ],
   imports: [
     CommonModule,
     FormsModule,
+    SharedModule,
     NgxPaginationModule,
     RouterModule.forChild([
       {
@@ -43,7 +53,6 @@ import { MakeBolderPipe } from './pipes/make-bolder.pipe';
       }
     ])
   ],
-  declarations: [CountriesComponent, CountryComponent, NameFilterPipe, LangFilterPipe, CurrencyFilterPipe, MakeBolderPipe],
   providers: [CountryService, NgxPaginationModule]
 })
 export class CountryModule { }
