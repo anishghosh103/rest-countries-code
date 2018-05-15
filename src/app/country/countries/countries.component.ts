@@ -37,6 +37,7 @@ export class CountriesComponent implements OnInit, AfterViewChecked, OnDestroy {
   private pageNumber: number;
 
   private nameFilter: string;
+  private regionFilter: string;
   private langFilter: string;
   private currencyFilter: string;
 
@@ -52,6 +53,7 @@ export class CountriesComponent implements OnInit, AfterViewChecked, OnDestroy {
     this.searching = true;
     this.pageNumber = 1;
     this.nameFilter = '';
+    this.regionFilter = '';
     this.langFilter = '';
     this.currencyFilter = '';
     this.scrollWindow = null;

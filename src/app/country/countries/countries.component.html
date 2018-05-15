@@ -14,8 +14,9 @@
     <!-- Filtering Textboxes -->
     <div class="filters d-flex flex-column flex-md-row justify-content-around px-3 py-2 w-100">
       <input type="text" class="textbox" [class.active]="nameFilter" placeholder="Search Name" [(ngModel)]="nameFilter">
-      <input type="text" class="textbox" [class.active]="langFilter" placeholder="Search Language" [(ngModel)]="langFilter">
-      <input type="text" class="textbox" [class.active]="currencyFilter" placeholder="Search Currency" [(ngModel)]="currencyFilter">
+      <input type="text" class="textbox" [class.active]="regionFilter" placeholder="Search Region" [(ngModel)]="regionFilter" *ngIf="type !== 'region'">
+      <input type="text" class="textbox" [class.active]="langFilter" placeholder="Search Language" [(ngModel)]="langFilter" *ngIf="type !== 'lang'">
+      <input type="text" class="textbox" [class.active]="currencyFilter" placeholder="Search Currency" [(ngModel)]="currencyFilter" *ngIf="type !== 'currency'">
     </div>
 
   </header>
@@ -29,7 +30,7 @@
 
     <!-- Country List -->
     <div class="row">
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let country of list | nameFilter: nameFilter | langFilter: langFilter | currencyFilter: currencyFilter | paginate: { itemsPerPage: 12, currentPage: pageNumber }">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let country of list | regionFilter: regionFilter | nameFilter: nameFilter | langFilter: langFilter | currencyFilter: currencyFilter | paginate: { itemsPerPage: 12, currentPage: pageNumber }">
         <div class="card mx-auto my-3 shadow border-0" [@cardAnim]="cardState">
           <img src="{{ country.flag }}" alt="{{ country.name }}" class="card-img-top">
           <div class="card-body">

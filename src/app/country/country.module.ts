@@ -11,6 +11,7 @@ import { LangFilterPipe } from './pipes/lang-filter.pipe';
 import { CurrencyFilterPipe } from './pipes/currency-filter.pipe';
 import { MakeBolderPipe } from './pipes/make-bolder.pipe';
 import { SharedModule } from '../shared/shared.module';
+import { RegionFilterPipe } from './pipes/region-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SharedModule } from '../shared/shared.module';
     NameFilterPipe,
     LangFilterPipe,
     CurrencyFilterPipe,
-    MakeBolderPipe
+    MakeBolderPipe,
+    RegionFilterPipe
   ],
   imports: [
     CommonModule,
