@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
 
   constructor() {
     this.selectedRegion = 'asia';
-    this.regions = [ 'asia', 'africa', 'americas', 'europe', 'oceania' ];
+    this.regions = [ 'asia', 'africa', 'americas', 'europe', 'oceania', 'polar' ];
     this.listState = 'hidden';
   }
 

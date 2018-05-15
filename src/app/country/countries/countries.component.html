@@ -35,6 +35,10 @@
           <div class="card-body">
             <div class="card-title" [innerHtml]="country.name | makeBolder: nameFilter"></div>
             <div class="card-text">
+              <div class="pair" *ngIf="country.type !== 'region'">
+                <div class="key">Region</div>
+                <div class="value">{{ country.region }}</div>
+              </div>
               <div class="pair" *ngIf="country.capital">
                 <div class="key">Capital</div>
                 <div class="value">{{ country.capital }}</div>
