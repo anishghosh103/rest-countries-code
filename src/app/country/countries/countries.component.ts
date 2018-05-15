@@ -89,7 +89,7 @@ export class CountriesComponent implements OnInit, AfterViewChecked, OnDestroy {
       this.searching = false;
     })
     .catch(err => {
-      console.log('countries.component.ts:82', err);
+      // console.log('countries.component.ts:82', err);
       this._router.navigate(['/']);
     });
   }
