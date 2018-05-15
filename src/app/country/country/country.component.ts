@@ -3,7 +3,9 @@ import { Country } from '../country.interface';
 import { AppService } from '../../app.service';
 import { ActivatedRoute } from '@angular/router';
 import { CountryService } from '../country.service';
-import Vibrant = require('node-vibrant');
+
+declare var require: any;
+const Vibrant = require('node-vibrant');
 
 @Component({
   selector: 'app-country',

@@ -33,8 +33,4 @@ export interface Country {
   languages: Language[];
   flag: string;
   regionalBlocs: RegionalBloc[];
-
-  nameHtml?: string;
-  langHtml?: string;
-  currencyHtml?: string;
 }

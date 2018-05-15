@@ -57,15 +57,11 @@ export class HomeComponent implements OnInit {
   private regions: string[];
 
   private listState: string;
-  private imageState: string;
-  private imageStateChangeCounter: number;
 
   constructor() {
     this.selectedRegion = 'asia';
     this.regions = [ 'asia', 'africa', 'americas', 'europe', 'oceania' ];
     this.listState = 'hidden';
-    this.imageState = 'shown';
-    this.imageStateChangeCounter = -1;
   }
 
   ngOnInit() {

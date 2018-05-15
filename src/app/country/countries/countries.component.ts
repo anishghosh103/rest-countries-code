@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewChecked } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../../app.service';
 import { Country } from '../country.interface';
@@ -25,7 +25,7 @@ import { log } from 'util';
     ])
   ]
 })
-export class CountriesComponent implements OnInit, OnDestroy {
+export class CountriesComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   private type: string;
   private value: string;
@@ -40,6 +40,8 @@ export class CountriesComponent implements OnInit, OnDestroy {
   private langFilter: string;
   private currencyFilter: string;
 
+  private scrollWindow: any;
+
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _appService: AppService,
@@ -52,6 +54,7 @@ export class CountriesComponent implements OnInit, OnDestroy {
     this.nameFilter = '';
     this.langFilter = '';
     this.currencyFilter = '';
+    this.scrollWindow = null;
   }
 
   ngOnInit() {
@@ -62,6 +65,13 @@ export class CountriesComponent implements OnInit, OnDestroy {
       this.pageNumber = this._countryService.getPageNumber();
       this._getCountries();
     });
+  }
+
+  ngAfterViewChecked() {
+    if (this.scrollWindow !== null) {
+      window.scrollTo(this.scrollWindow.x, this.scrollWindow.y);
+      this.scrollWindow = null;
+    }
   }
 
   ngOnDestroy() {
@@ -82,6 +92,11 @@ export class CountriesComponent implements OnInit, OnDestroy {
       console.log('countries.component.ts:82', err);
       this._router.navigate(['/']);
     });
+  }
+
+  private _pageChange(event) {
+    this.pageNumber = event;
+    this.scrollWindow = {x: 0, y: 0};
   }
 
   public showCountry(countryName: string) {
