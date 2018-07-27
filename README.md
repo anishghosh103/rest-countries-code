@@ -1,29 +1,18 @@
-# WorldApi
+# Countries Info
 
-Webpage URL: https://anishghosh103.github.io/CountriesInfoApp/
+Get detailed information about all the countries of the world based on major regions, such as Asia, Africa, etc. It also has the feature to filter the countries of a region based on name, languages spoken and currencies used in the country.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+[Click here](https://anishghosh103.github.io/CountriesInfoApp/) to check the website.
 
-## Development server
+### Screenshots:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Home Page:
+![Home Page](assets/images/screenshots/home.png)
 
-## Code scaffolding
+- Country Details View:
+![](assets/images/screenshots/india.PNG)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Built With
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Angular 5
+- Bootstrap
