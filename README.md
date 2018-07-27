@@ -7,10 +7,10 @@ Get detailed information about all the countries of the world based on major reg
 ### Screenshots:
 
 - Home Page:
-![Home Page](assets/images/screenshots/home.png)
+![Home Page](screenshots/home.png)
 
 - Country Details View:
-![](assets/images/screenshots/india.PNG)
+![](screenshots/india.PNG)
 
 ### Built With
 
